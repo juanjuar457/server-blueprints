@@ -1,0 +1,19 @@
+<div class="container">
+  <app-cockpit
+  (serverCreated)="onServerAdded($event)"
+  (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element
+      *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement"></app-server-element>
+    </div>
+  </div>
+</div>
+
+
+<!-- replicate the servers with *ngFor on line 6 -->
+<!-- KIP on line 3, we have our custom event, 'serverCreated' and we want to capture the data from that -
+event with $event, (this would be our data ie: name, content of new server or blueprint) -->
